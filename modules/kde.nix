@@ -27,5 +27,6 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     kitty
+    kdePackages.krohnkite    # dynamic tiling for KWin 6
   ];
 }

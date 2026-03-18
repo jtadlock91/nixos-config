@@ -3,12 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
     };
@@ -27,8 +25,14 @@
           ./hosts/desktop/configuration.nix
           ./modules/common.nix
           ./modules/kde.nix
-	  ./modules/gaming.nix 
+          ./modules/gaming.nix
           ./modules/performance.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.john = import ./home;
+          }
         ];
       };
 
@@ -39,8 +43,12 @@
           ./hosts/laptop/configuration.nix
           ./modules/common.nix
           ./modules/kde.nix
-          # performance.nix intentionally excluded on laptop
-          # TLP handles power management instead
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.john = import ./home;
+          }
         ];
       };
 

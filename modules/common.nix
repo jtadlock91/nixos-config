@@ -33,6 +33,11 @@
     options = "--delete-older-than 5d";
   };
 
+  # JetBrains Mono Nerd Font
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
   users.users.john = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
@@ -43,6 +48,7 @@
     git
     wget
     htop
+    fastfetch
   ];
 
   system.stateVersion = "24.11";

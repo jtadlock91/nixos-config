@@ -31,3 +31,9 @@ in
 
   hardware.bluetooth.enable = false;
 }
+
+# btrfs compression and trim
+services.btrfs.autoScrub = {
+  enable = true;
+  interval = "weekly";
+};

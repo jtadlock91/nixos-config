@@ -30,10 +30,10 @@ in
   environment.variables.AMD_VULKAN_ICD = "RADV";
 
   hardware.bluetooth.enable = false;
-}
 
-# btrfs compression and trim
-services.btrfs.autoScrub = {
-  enable = true;
-  interval = "weekly";
-};
+  # btrfs compression and trim
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+  };
+}

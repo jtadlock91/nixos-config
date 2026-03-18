@@ -7,6 +7,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Enable SSH so we can always get in remotely
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "yes";
+  };
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -44,6 +50,9 @@
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     shell = pkgs.bash;
   };
+
+  # Set a password for john so SSH login works
+  users.users.john.initialPassword = "nixos";
 
   environment.systemPackages = with pkgs; [
     git

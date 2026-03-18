@@ -31,9 +31,10 @@ in
 
   hardware.bluetooth.enable = false;
 
-  # btrfs compression and trim
+  # btrfs scrub — explicitly point to root subvolume
   services.btrfs.autoScrub = {
     enable = true;
     interval = "weekly";
+    fileSystems = [ "/" ];
   };
 }

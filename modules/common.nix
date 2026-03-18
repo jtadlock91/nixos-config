@@ -5,6 +5,8 @@
 
   networking.networkmanager.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -33,7 +35,6 @@
     options = "--delete-older-than 5d";
   };
 
-  # JetBrains Mono Nerd Font
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];

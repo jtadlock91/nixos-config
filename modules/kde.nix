@@ -111,7 +111,6 @@
   };
 
   # Disable Baloo file indexer
-  services.baloo.enable = false;
 
   environment.systemPackages = with pkgs; [
     vivaldi

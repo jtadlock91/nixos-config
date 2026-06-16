@@ -23,7 +23,6 @@
 
   environment.variables = {
     NIXOS_OZONE_WL = "1";
-    DISPLAY = ":0";
   };
 
   environment.systemPackages = with pkgs; [

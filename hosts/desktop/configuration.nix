@@ -27,7 +27,11 @@ in
     enable32Bit = true;
   };
 
-  environment.variables.AMD_VULKAN_ICD = "RADV";
+  environment.variables = {
+    AMD_VULKAN_ICD = "RADV";
+    RADV_PERFTEST = "gpl,nggc";
+    mesa_glthread = "true";
+  };
 
   hardware.bluetooth.enable = false;
 

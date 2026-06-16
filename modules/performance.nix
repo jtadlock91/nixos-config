@@ -4,6 +4,9 @@
   # ── Kernel sysctl tweaks ─────────────────────────────────────────────────────
 
   boot.kernel.sysctl = {
+    # ── BORE scheduler ──────────────────────────────────────────
+    "kernel.sched_bore" = 1;
+    "kernel.sched_min_base_slice_ns" = 2000000;
 
     # ── Memory management ───────────────────────────────────────
     "vm.swappiness" = 10;
@@ -41,7 +44,7 @@
 
     # ── AMDGPU power level ───────────────────────────────────────
     ACTION=="bind", KERNEL=="card*", SUBSYSTEM=="drm", DRIVERS=="amdgpu", \
-      ATTR{device/power_dri_level}="high"
+      ATTR{device/power_dpm_force_performance_level}="high"
   '';
 
   # ── CPU governor ─────────────────────────────────────────────────────────────

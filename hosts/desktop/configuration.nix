@@ -22,6 +22,9 @@ in
 
   hardware.cpu.amd.updateMicrocode = true;
 
+  # AMD P-state driver
+  boot.kernelParams = [ "amd_pstate=guided" ];
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -30,6 +33,9 @@ in
   environment.variables = {
     AMD_VULKAN_ICD = "RADV";
     RADV_PERFTEST = "gpl,nggc";
+    mesa_glthread = "true";
+    BROWSER = "vivaldi";
+    EDITOR = "nano";
     mesa_glthread = "true";
   };
 

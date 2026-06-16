@@ -7,6 +7,7 @@
     # ── BORE scheduler ──────────────────────────────────────────
     "kernel.sched_bore" = 1;
     "kernel.sched_min_base_slice_ns" = 2000000;
+    "kernel.sched_autogroup_enabled" = 0;
 
     # ── Memory management ───────────────────────────────────────
     "vm.swappiness" = 10;

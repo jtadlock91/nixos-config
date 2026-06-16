@@ -3,9 +3,9 @@
   imports = [ ./hardware-configuration.nix ];
 
   networking.hostName = "nixos-vm";
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

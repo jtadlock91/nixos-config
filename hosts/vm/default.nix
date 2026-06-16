@@ -13,6 +13,8 @@
   services.openssh.enable = true;
   hardware.bluetooth.enable = false;
 
+  environment.systemPackages = with pkgs; [ git ];
+
   # VM user — installer created workpc, not john
   users.users.workpc = {
     isNormalUser = true;

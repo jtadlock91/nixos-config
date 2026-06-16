@@ -76,4 +76,33 @@
   # ── Nix build performance ────────────────────────────────────────────────────
   nix.settings.max-jobs = "auto";
   nix.settings.cores = 0;
+
+  # ── Performance daemons ──────────────────────────────────────────────────────
+  services.auto-cpufreq.enable = true;
+  services.irqbalance.enable = true;
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+  };
+
+  # ── Btrfs scrub ──────────────────────────────────────────────────────────────
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [ "/" ];
+  };
+
+  # ── Snapper ──────────────────────────────────────────────────────────────────
+  services.snapper.configs.root = {
+    SUBVOLUME = "/";
+    TIMELINE_CREATE = true;
+    TIMELINE_CLEANUP = true;
+    TIMELINE_LIMIT_HOURLY = "3";
+    TIMELINE_LIMIT_DAILY = "5";
+    TIMELINE_LIMIT_WEEKLY = "0";
+    TIMELINE_LIMIT_MONTHLY = "0";
+    TIMELINE_LIMIT_YEARLY = "0";
+    NUMBER_LIMIT = "10";
+    NUMBER_LIMIT_IMPORTANT = "5";
+  };
 }

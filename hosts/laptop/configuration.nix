@@ -1,21 +1,16 @@
 { config, pkgs, nix-cachyos-kernel, ... }:
-
-let
-  useCachyKernel = true;
-  cachyKernel =
-    nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-rc;
-  fallbackKernel = pkgs.linuxPackages_latest;
-in
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/performance.nix
+  ];
 
   networking.hostName = "nixos-laptop";
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelPackages = if useCachyKernel then cachyKernel else fallbackKernel;
   boot.loader.systemd-boot.configurationLimit = 5;
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   hardware.cpu.intel.updateMicrocode = true;
 
@@ -39,11 +34,25 @@ in
     extraPackages = with pkgs; [ intel-media-driver ];
   };
 
+  services.tlp.enable = true;
+  services.thermald.enable = true;
+  powerManagement.powertop.enable = false;
+  services.power-profiles-daemon.enable = false;
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  # TLP conflicts with power-profiles-daemon which KDE enables by default
-  services.power-profiles-daemon.enable = false;
-  services.tlp.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
+
+  users.groups.worklaptop = {};
+  users.users.worklaptop = {
+    isNormalUser = true;
+    group = "worklaptop";
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    shell = pkgs.bash;
+    initialPassword = "nixos";
+  };
+
+  system.stateVersion = "26.05";
 }

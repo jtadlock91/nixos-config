@@ -14,7 +14,6 @@
     korganizer
     kontact
     kaddressbook
-    knotes
     kdepim-addons
     kdepim-runtime
     akonadi

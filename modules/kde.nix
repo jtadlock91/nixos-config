@@ -28,7 +28,6 @@
     gwenview
     okular
     kate
-    kwrite
     kcalc
     kcharselect
     kfind

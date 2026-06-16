@@ -61,7 +61,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.john = import ./home;
+            home-manager.users.worklaptop = import ./home;
           }
         ];
       };

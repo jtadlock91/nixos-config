@@ -41,6 +41,7 @@
           ./modules/kde.nix
           ./modules/gaming.nix
           ./modules/performance.nix
+          { nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ]; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

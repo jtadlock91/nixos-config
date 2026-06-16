@@ -12,6 +12,7 @@
   services.qemuGuest.enable = true;
   services.openssh.enable = true;
   hardware.bluetooth.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   environment.systemPackages = with pkgs; [ git ];
 

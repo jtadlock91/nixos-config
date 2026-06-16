@@ -54,7 +54,6 @@
     kget
     krdc
     krfb
-    kdeconnect
 
     # Games
     bomber

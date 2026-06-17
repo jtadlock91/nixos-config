@@ -120,5 +120,10 @@
     kdePackages.kcalc
     libreoffice-qt6-fresh
   ];
-}
 
+  # Mask unused KDE services
+  systemd.user.services."plasma-kactivitymanagerd" = { enable = lib.mkForce false; };
+  systemd.user.services."geoclue-agent" = { enable = lib.mkForce false; };
+  systemd.user.services."plasma-xembedsniproxy" = { enable = lib.mkForce false; };
+  systemd.user.services."kunifiedpush-distributor" = { enable = lib.mkForce false; };
+}

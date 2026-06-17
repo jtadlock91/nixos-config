@@ -27,11 +27,11 @@
     auto-optimise-store = true;
     substituters = [
       "https://cache.nixos.org"
-      "https://xddxdd-nix-cachyos-kernel.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "xddxdd-nix-cachyos-kernel.cachix.org-1:MRSzIglGJcS0eRqwRZxh/JQm0/xpEuHIGGKWHQbKdBM="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 

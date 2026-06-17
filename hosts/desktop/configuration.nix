@@ -22,6 +22,13 @@ in
 
   hardware.cpu.amd.updateMicrocode = true;
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = false;
+    gamescopeSession.enable = true;
+  };
+
   # AMD P-state driver
   boot.kernelParams = [ "amd_pstate=guided" ];
 

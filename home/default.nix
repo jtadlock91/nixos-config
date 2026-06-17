@@ -18,6 +18,4 @@
       fi
     '';
   };
-  # Disable Baloo file indexer
-  services.baloo.enable = false;
 }

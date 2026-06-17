@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   services.xserver.enable = true;
   services.displayManager.sddm = {
@@ -6,7 +6,7 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
-  security.pam.services.login.enableKwallet = false;
+  security.pam.services.login.kwallet.enable = lib.mkForce false;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     # PIM / Akonadi stack

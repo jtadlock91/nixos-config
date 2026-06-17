@@ -28,7 +28,6 @@
     gwenview
     okular
     kate
-    kcalc
     kcharselect
     kfind
     kruler
@@ -115,5 +114,7 @@
     kitty
     kdePackages.krohnkite
     kdePackages.spectacle
+    kdePackages.kcalc
+    libreoffice-qt6-fresh
   ];
 }

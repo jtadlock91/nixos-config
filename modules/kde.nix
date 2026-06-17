@@ -124,4 +124,7 @@
   # Mask safe unused services
   systemd.user.services."geoclue-agent" = { enable = lib.mkForce false; };
 
+
+  # Fully disable KWallet daemon
+  systemd.user.services."org.kde.kwalletd6" = { enable = lib.mkForce false; };
 }

@@ -6,6 +6,7 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
+  security.pam.services.login.enableKwallet = false;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     # PIM / Akonadi stack

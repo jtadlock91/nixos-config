@@ -80,6 +80,7 @@
 
   # ── Performance daemons ──────────────────────────────────────────────────────
   services.auto-cpufreq.enable = true;
+  services.power-profiles-daemon.enable = false;
   services.irqbalance.enable = true;
   services.ananicy = {
     enable = true;

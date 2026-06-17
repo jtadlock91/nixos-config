@@ -27,11 +27,11 @@
     auto-optimise-store = true;
     substituters = [
       "https://cache.nixos.org"
-      "https://nix-cachyos-kernel.cachix.org"
+      "https://xddxdd-nix-cachyos-kernel.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "nix-cachyos-kernel.cachix.org-1:YTix2hFmNPDYBEaKSLAFKiX3C1FGqKlC3/eJzB87ZYI="
+      "xddxdd-nix-cachyos-kernel.cachix.org-1:MRSzIglGJcS0eRqwRZxh/JQm0/xpEuHIGGKWHQbKdBM="
     ];
   };
 

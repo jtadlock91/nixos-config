@@ -121,6 +121,10 @@
     libreoffice-qt6-fresh
   ];
 
-  # Mask unused KDE services
-  systemd.user.services."plasma-kactivitymanagerd" = { enable = lib.mkForce false; };
+  # Mask safe unused services
+  systemd.user.services."geoclue-agent" = { enable = lib.mkForce false; };
+
+  # Disable KWallet
+  security.pam.services.login.kwallet.enable = lib.mkForce false;
+  security.pam.services.sddm.kwallet.enable = lib.mkForce false;
 }

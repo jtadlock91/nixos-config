@@ -3,7 +3,7 @@
 let
   useCachyKernel = true;
   cachyKernel =
-    nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-bore-lto;
+    nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-rc-lto;
   fallbackKernel = pkgs.linuxPackages_latest;
 in
 {

@@ -43,7 +43,6 @@ in
     mesa_glthread = "true";
     BROWSER = "vivaldi";
     EDITOR = "nano";
-    mesa_glthread = "true";
   };
 
   hardware.bluetooth.enable = false;

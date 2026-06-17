@@ -121,3 +121,10 @@
     libreoffice-qt6-fresh
   ];
 }
+
+  # Disable unused KDE services
+  systemd.user.services.plasma-kactivitymanagerd.enable = false;
+  systemd.user.services.geoclue-agent.enable = false;
+  systemd.user.services.plasma-xembedsniproxy.enable = false;
+  systemd.user.services.kunifiedpush-distributor.enable = false;
+}

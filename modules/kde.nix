@@ -6,6 +6,7 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enableQt5Integration = false;
   security.pam.services.login.kwallet.enable = lib.mkForce false;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [

@@ -21,3 +21,12 @@
     '';
   };
 }
+
+  # Disable Baloo file indexer
+  services.baloo.enable = false;
+
+  # Disable KWallet
+  services.kdeconnect.enable = false;
+
+  # Disable Baloo
+  services.baloo.enable = false;

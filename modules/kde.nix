@@ -111,7 +111,6 @@
   # Disable Baloo file indexer
 
   environment.systemPackages = with pkgs; [
-    rustdesk
     vivaldi
     vivaldi-ffmpeg-codecs
     kitty

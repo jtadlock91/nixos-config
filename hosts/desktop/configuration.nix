@@ -22,6 +22,8 @@ in
 
   hardware.cpu.amd.updateMicrocode = true;
 
+  environment.systemPackages = with pkgs; [ rustdesk ];
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

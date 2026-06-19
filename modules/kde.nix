@@ -109,9 +109,13 @@
   };
 
   # Disable Baloo file indexer
-
   environment.systemPackages = with pkgs; [
-    vivaldi
+    (pkgs.symlinkJoin {
+      name = "vivaldi-wrapped";
+      paths = [ vivaldi ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = "wrapProgram $out/bin/vivaldi --add-flags --password-store=basic";
+    })
     vivaldi-ffmpeg-codecs
     kitty
     kdePackages.krohnkite

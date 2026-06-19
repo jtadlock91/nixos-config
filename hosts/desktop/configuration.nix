@@ -43,16 +43,8 @@ in
     AMD_VULKAN_ICD = "RADV";
     RADV_PERFTEST = "gpl,nggc";
     mesa_glthread = "true";
-    BROWSER = "vivaldi";
-    EDITOR = "nano";
   };
 
   hardware.bluetooth.enable = false;
 
-  # btrfs scrub — explicitly point to root subvolume
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "weekly";
-    fileSystems = [ "/" ];
-  };
 }

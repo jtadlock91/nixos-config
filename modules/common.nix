@@ -45,7 +45,9 @@
     nerd-fonts.jetbrains-mono
   ];
 
+  users.groups.john = {};
   users.users.john = {
+    group = "john";
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
     shell = pkgs.bash;
@@ -53,6 +55,11 @@
 
   # Set a password for john so SSH login works
   users.users.john.initialPassword = "nixos";
+
+  environment.variables = {
+    BROWSER = "vivaldi";
+    EDITOR = "nano";
+  };
 
   environment.systemPackages = with pkgs; [
     git

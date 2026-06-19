@@ -17,21 +17,6 @@
     system = "x86_64-linux";
   in {
     nixosConfigurations = {
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/vm/default.nix
-          ./modules/common.nix
-          ./modules/kde.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.workpc = import ./home;
-          }
-        ];
-      };
 
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;

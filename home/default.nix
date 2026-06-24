@@ -9,13 +9,14 @@
       shell_integration = "enabled";
     };
   };
-  # Fastfetch runs every time a new shell opens in Kitty
   programs.bash = {
     enable = true;
     bashrcExtra = ''
       if [ -n "$KITTY_WINDOW_ID" ]; then
         fastfetch
       fi
+      alias update="cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#desktop && git add flake.lock && git commit -m 'chore: update flake inputs' && git push"
+      alias update-laptop="cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#laptop && git add flake.lock && git commit -m 'chore: update flake inputs' && git push"
     '';
   };
 }

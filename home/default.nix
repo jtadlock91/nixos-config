@@ -15,8 +15,7 @@
       if [ -n "$KITTY_WINDOW_ID" ]; then
         fastfetch
       fi
-      alias update="cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#desktop && git add flake.lock && git commit -m 'chore: update flake inputs' && git push"
-      alias update-laptop="cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#laptop && git add flake.lock && git commit -m 'chore: update flake inputs' && git push"
+      alias update='cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#$(hostname) && git add flake.lock && git commit -m "chore: update flake inputs" && git push'
     '';
   };
 }

@@ -24,15 +24,17 @@
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
+    connect-timeout = 5;
+    fallback = true;
     substituters = [
+      
       "https://cache.nixos.org"
-      "https://attic.xuyh0120.win/lantian"
     ];
     trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
+    auto-optimise-store = true;
   };
 
   nix.gc = {

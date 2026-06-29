@@ -28,6 +28,7 @@
     fallback = true;
     substituters = [
       
+      "https://attic.xuyh0120.win/lantian"
       "https://cache.nixos.org"
     ];
     trusted-public-keys = [

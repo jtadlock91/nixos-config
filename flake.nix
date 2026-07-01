@@ -10,9 +10,12 @@
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel";
     };
+   claude-desktop-bin = {
+     url = "github:patrickjaja/claude-desktop-bin";
+   };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-cachyos-kernel, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-cachyos-kernel, claude-desktop-bin, ... }:
   let
     system = "x86_64-linux";
   in {
@@ -20,7 +23,7 @@
 
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit nix-cachyos-kernel; };
+        specialArgs = { inherit nix-cachyos-kernel claude-desktop-bin; };
         modules = [
           ./hosts/desktop/configuration.nix
           ./modules/common.nix

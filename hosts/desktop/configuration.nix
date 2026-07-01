@@ -1,4 +1,4 @@
-{ config, pkgs, nix-cachyos-kernel, ... }:
+{ config, pkgs, nix-cachyos-kernel, claude-desktop-bin, ... }:
 
 let
   useCachyKernel = true;
@@ -14,6 +14,8 @@ in
 
   networking.hostName = "nixos-desktop";
 
+ nixpkgs.config.allowUnfree = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -21,8 +23,9 @@ in
   boot.loader.systemd-boot.configurationLimit = 5;
 
   hardware.cpu.amd.updateMicrocode = true;
+ boot.kernelModules = [ "kvm-amd" ];
 
-  environment.systemPackages = with pkgs; [ rustdesk ];
+  environment.systemPackages = (with pkgs; [ rustdesk ]) ++ [ claude-desktop-bin.packages.${pkgs.system}.default ];
 
   programs.steam = {
     enable = true;
@@ -46,5 +49,7 @@ in
   };
 
   hardware.bluetooth.enable = false;
+
+ users.users.john.extraGroups = [ "kvm" ];
 
 }

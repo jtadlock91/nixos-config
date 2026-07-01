@@ -20,6 +20,7 @@
       else
         alias update='cd ~/nixos-config && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#laptop && git add flake.lock && git commit -m "chore: update flake inputs" && git push'
       fi
+     alias deploy-site='cd ~/pcrepair-website && git pull && scp index.html root@192.168.100.102:/data/arrconfig/pcrepair/index.html && cd -'
     '';
   };
 }

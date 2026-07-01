@@ -10,12 +10,9 @@
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel";
     };
-   claude-desktop = {
-     url = "github:Reginleif88/claude-cowork-nix";
-   };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-cachyos-kernel, claude-desktop, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-cachyos-kernel, ... }:
   let
     system = "x86_64-linux";
   in {
@@ -36,7 +33,6 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-           home-manager.sharedModules = [ claude-desktop.homeManagerModules.default ];
             home-manager.users.john = import ./home;
           }
         ];

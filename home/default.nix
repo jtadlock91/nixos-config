@@ -23,9 +23,4 @@
      alias deploy-site='cd ~/pcrepair-website && git pull && scp index.html root@192.168.100.102:/data/arrconfig/pcrepair/index.html && cd -'
     '';
   };
- programs.claude-desktop = {
-   enable = true;
-   fhs = true;
-   createDesktopEntry = true;
- };
 }

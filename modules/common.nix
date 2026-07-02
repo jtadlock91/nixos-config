@@ -65,6 +65,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    haruna
+    mpv
     git
     wget
     htop

@@ -23,9 +23,17 @@ in
   boot.loader.systemd-boot.configurationLimit = 5;
 
   hardware.cpu.amd.updateMicrocode = true;
- boot.kernelModules = [ "kvm-amd" ];
+ boot.kernelModules = [ "kvm-amd" "vhost_vsock" ];
 
-  environment.systemPackages = (with pkgs; [ rustdesk ]) ++ [ claude-desktop-bin.packages.${pkgs.system}.default ];
+  environment.systemPackages = (with pkgs; [ rustdesk ]) ++ [ (claude-desktop-bin.packages.${pkgs.system}.default.override { qemu = pkgs.qemu; }) ];
+
+  # Cowork VM support (claude-desktop-bin) — OVMF at a path the app probes
+  systemd.tmpfiles.rules = [
+    "d /usr/share/edk2 0755 root root -"
+    "d /usr/share/edk2/x64 0755 root root -"
+    "L+ /usr/share/edk2/x64/OVMF_CODE.fd - - - - ${pkgs.OVMF.fd}/FV/OVMF_CODE.fd"
+    "L+ /usr/share/edk2/x64/OVMF_VARS.fd - - - - ${pkgs.OVMF.fd}/FV/OVMF_VARS.fd"
+  ];
 
   programs.steam = {
     enable = true;

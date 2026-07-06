@@ -38,11 +38,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1783277811,
-        "narHash": "sha256-7FpjDSJKe7Fsgtk0DOsVTsRAETuMylwBlWOWkpPwGnk=",
+        "lastModified": 1783333102,
+        "narHash": "sha256-l/uuUALzK1nm0Wm1hN6JiWUbeWQ6ws/VCOVfkW+ewsI=",
         "owner": "patrickjaja",
         "repo": "claude-desktop-bin",
-        "rev": "aa784600c8910d4c4faeeb519172e537325e6d41",
+        "rev": "28a02939380afac8a5582df8996ea534a375d088",
         "type": "github"
       },
       "original": {

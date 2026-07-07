@@ -38,11 +38,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1783346907,
-        "narHash": "sha256-GJ8WEYjvurfBW1dhIzpvENeONGonuXBOkKgZT4/NuQI=",
+        "lastModified": 1783434356,
+        "narHash": "sha256-+P4xYn0z87tpe3OaHBms2aED/Vx3x4U8laUBDImZUvY=",
         "owner": "patrickjaja",
         "repo": "claude-desktop-bin",
-        "rev": "612b0ff430929c22ad05a809847a7bbc66939098",
+        "rev": "09c88f1cd0fb9b25dd145e753c7b6ddc5215a9a7",
         "type": "github"
       },
       "original": {
@@ -110,11 +110,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783388784,
-        "narHash": "sha256-w+YU5vatysjLZIg1wOKSzo/RL9Z66eBQuIjVnBM/1Zg=",
+        "lastModified": 1783436070,
+        "narHash": "sha256-F80z1JoiJgZyTT5D+3siLOVzqmCEphLR7t0Ym/I2CLI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "63d02d1c19f1c2b47a5bc7e55c620b6af7b218a6",
+        "rev": "f09af49406ffad37acb6538d3207189a1a1e0b7e",
         "type": "github"
       },
       "original": {

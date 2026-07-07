@@ -41,7 +41,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 5d";
+    options = "--delete-older-than 2d";
   };
 
   fonts.packages = with pkgs; [

@@ -16,9 +16,9 @@
         fastfetch
       fi
       if [ "$(hostname)" = "nixos-desktop" ]; then
-        alias update='cd ~/nixos-config && git pull && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#desktop && git add flake.lock && git commit -m "chore: update flake inputs" && git push'
+        alias update='cd ~/nixos-config && git pull && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#desktop && sudo nix-env --delete-generations +3 --profile /nix/var/nix/profiles/system && sudo nix-collect-garbage -d && git add flake.lock && git commit -m "chore: update flake inputs" && git push'
       else
-        alias update='cd ~/nixos-config && git pull && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#laptop && git add flake.lock && git commit -m "chore: update flake inputs" && git push'
+        alias update='cd ~/nixos-config && git pull && nix flake update && sudo nixos-rebuild switch --flake ~/nixos-config#laptop && sudo nix-env --delete-generations +3 --profile /nix/var/nix/profiles/system && sudo nix-collect-garbage -d && git add flake.lock && git commit -m "chore: update flake inputs" && git push'
       fi
      alias deploy-site='cd ~/pcrepair-website && git pull && scp index.html root@192.168.100.102:/data/arrconfig/pcrepair/index.html && cd -'
     '';

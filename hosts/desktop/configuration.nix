@@ -16,6 +16,15 @@ in
 
  nixpkgs.config.allowUnfree = true;
 
+ programs.nix-ld.enable = true;
+ programs.nix-ld.libraries = with pkgs; [
+   stdenv.cc.cc.lib
+   zlib
+   openssl
+   curl
+   icu
+ ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

@@ -37,10 +37,20 @@
         fi
         nix flake update
         echo "==> Rebuilding #''${flake_target}"
-        if ! sudo nixos-rebuild switch --flake ~/nixos-config#"''${flake_target}"; then
+        rebuild_log="$(mktemp)"
+        sudo nixos-rebuild switch --flake ~/nixos-config#"''${flake_target}" 2>&1 | tee "''${rebuild_log}"
+        rebuild_status="''${PIPESTATUS[0]}"
+        if [ "''${rebuild_status}" -ne 0 ]; then
           echo "==> Rebuild failed -- not committing/pushing flake.lock"
+          failed_drv="$(sed -n "s/.*Cannot build '\([^']*\)'.*/\1/p" "''${rebuild_log}" | head -1)"
+          if [ -n "''${failed_drv}" ]; then
+            failed_pkg="$(basename "''${failed_drv}" | sed -E 's/-[0-9].*\.drv$//')"
+            echo "==> Likely failing package: ''${failed_pkg}"
+          fi
+          rm -f "''${rebuild_log}"
           return 1
         fi
+        rm -f "''${rebuild_log}"
         sudo nix-env --delete-generations +3 --profile /nix/var/nix/profiles/system
         sudo nix-collect-garbage
         git add flake.lock

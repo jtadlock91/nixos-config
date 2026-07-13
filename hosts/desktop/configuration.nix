@@ -49,6 +49,7 @@ in
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = false;
     gamescopeSession.enable = true;
+   extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   # AMD P-state driver
@@ -66,6 +67,7 @@ in
   };
 
   hardware.bluetooth.enable = false;
+ programs.gamemode = { enable = true; settings.general.renice = 10; };
 
  users.users.john.extraGroups = [ "kvm" ];
 

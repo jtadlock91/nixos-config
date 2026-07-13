@@ -11,7 +11,7 @@
       url = "github:xddxdd/nix-cachyos-kernel";
     };
    claude-desktop-bin = {
-     url = "github:patrickjaja/claude-desktop-bin/afa75a6d396140c98a6930edc343abc5e63b8516";
+     url = "github:patrickjaja/claude-desktop-bin";
    };
   };
 

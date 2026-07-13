@@ -42,7 +42,7 @@
           return 1
         fi
         sudo nix-env --delete-generations +3 --profile /nix/var/nix/profiles/system
-        sudo nix-collect-garbage -d
+        sudo nix-collect-garbage
         git add flake.lock
         git commit -m "chore: update flake inputs"
         if ! git push; then

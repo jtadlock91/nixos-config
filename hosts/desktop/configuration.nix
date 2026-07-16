@@ -69,6 +69,14 @@ in
   hardware.bluetooth.enable = false;
  programs.gamemode = { enable = true; settings.general.renice = 10; };
 
- users.users.john.extraGroups = [ "kvm" ];
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+    };
+  };
+  programs.virt-manager.enable = true;
+ users.users.john.extraGroups = [ "kvm" "libvirtd" ];
 
 }

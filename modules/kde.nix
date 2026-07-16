@@ -96,6 +96,8 @@
 
     # Misc
     plasma-browser-integration
+    discover
+    plasma-welcome
     plasma-systemmonitor
     kgamma
     oxygen

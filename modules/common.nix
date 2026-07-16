@@ -64,6 +64,7 @@
     EDITOR = "nano";
   };
 
+  services.clamav = { daemon.enable = true; updater.enable = true; };
   environment.systemPackages = with pkgs; [
     clamav
     clamtk

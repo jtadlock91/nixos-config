@@ -65,6 +65,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    clamav
+    clamtk
     haruna
     mpv
     git
